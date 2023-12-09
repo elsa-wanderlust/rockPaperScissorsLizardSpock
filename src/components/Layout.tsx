@@ -1,8 +1,14 @@
-export default function Layout({ children }) {
+import Header from "./Header";
+import Footer from "./Footer";
+
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-green-200 h-screen w-screen justify-center items-center flex">
-      {/* display the child prop */}
-      {children}
+    <div>
+      <Header />
+      <div className="bg-green-200 h-screen w-screen justify-center flex pt-24">
+        {children}
+      </div>
+      <Footer />
     </div>
   );
 }

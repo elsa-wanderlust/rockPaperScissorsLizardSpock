@@ -16,6 +16,8 @@ type OptionCardProps = {
   setResult: React.Dispatch<
     React.SetStateAction<{ winner: string; sentence: string }>
   >;
+  setScore1: React.Dispatch<React.SetStateAction<number>>;
+  setScore2: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export default function OptionCard({
@@ -26,6 +28,8 @@ export default function OptionCard({
   choicePlayer2,
   setChoicePlayer2,
   setResult,
+  setScore1,
+  setScore2,
 }: OptionCardProps) {
   const { image, alt, left, top } = info;
 
@@ -34,6 +38,11 @@ export default function OptionCard({
       const player2Choice =
         optionsData[Math.floor(Math.random() * optionsData.length)].alt;
       const result = gameResult(alt, player2Choice);
+      if (result?.winner === "player1") {
+        setScore1((prev) => prev + 1);
+      } else if (result?.winner === "player2") {
+        setScore2((prev) => prev + 1);
+      }
       setResult(result ? result : { winner: "", sentence: "string" });
       setChoicePlayer1(alt);
       setChoicePlayer2(player2Choice);
@@ -42,20 +51,26 @@ export default function OptionCard({
 
   return (
     <div
-      className={`p-2inline-block h-24 w-24 rounded-full bg-white absolute ${
+      className={`p-3 h-24 w-24 flex items-center justify-center rounded-full bg-white absolute ${
         choicePlayer1 === alt &&
         player === "player1" &&
-        "border-4 border-red-800 border-solid"
-      } ${
+        "border-4 border-red-800 border-solid animate-[spin_1s_ease-in-out]"
+      } 
+      ${
         choicePlayer2 === alt &&
         player === "player2" &&
-        "border-4 border-green-800 border-solid"
+        "border-4 border-red-800 border-solid animate-[spin_1s_ease-in-out]"
+      }
+      ${
+        player === "player1"
+          ? "hover:cursor-pointer"
+          : "hover:cursor-not-allowed"
       }`}
       style={{ top: top, left: left }}
       onClick={handleClick}
     >
       <img
-        className="inline-block h-24 w-24 object-contain rounded-full"
+        className="h-24 w-24 object-contain rounded-full overflow-hidden"
         src={image}
         alt={alt}
       />

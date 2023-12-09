@@ -10,6 +10,9 @@ type AllOptionCardsProps = {
   setResult: React.Dispatch<
     React.SetStateAction<{ winner: string; sentence: string }>
   >;
+  setScore1: React.Dispatch<React.SetStateAction<number>>;
+  setScore2: React.Dispatch<React.SetStateAction<number>>;
+  score: number;
 };
 
 export default function AllOptionCards({
@@ -19,11 +22,14 @@ export default function AllOptionCards({
   choicePlayer2,
   setChoicePlayer2,
   setResult,
+  setScore1,
+  setScore2,
+  score,
 }: AllOptionCardsProps) {
   return (
     <div className="flex flex-col">
       <h2 className="text-center">
-        {player === "player1" ? "Your game" : "Sheldon"}
+        {player === "player1" ? "Your game" : "Sheldon"} - {score}
       </h2>
       <section className="relative h-[350px] w-[350px] bg-slate-500 p-2 rounded-full">
         {optionsData.map((item) => {
@@ -37,6 +43,8 @@ export default function AllOptionCards({
               choicePlayer2={choicePlayer2}
               setChoicePlayer2={setChoicePlayer2}
               setResult={setResult}
+              setScore1={setScore1}
+              setScore2={setScore2}
             />
           );
         })}
