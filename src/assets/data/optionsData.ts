@@ -5,9 +5,9 @@ import lizardImg from "@/assets/images/lizard.jpg";
 import spockImg from "@/assets/images/spock.jpg";
 
 export const optionsData = [
-  { image: rockImg, fallback: "Rock" },
-  { image: paperImg, fallback: "Paper" },
-  { image: scissorsImg, fallback: "Scissors" },
-  { image: lizardImg, fallback: "Lizard" },
-  { image: spockImg, fallback: "Spock" },
+  { image: rockImg, alt: "Rock", left: "125px", top: "4px" },
+  { image: paperImg, alt: "Paper", left: "250px", top: "100px" },
+  { image: scissorsImg, alt: "Scissors", left: "210px", top: "220px" },
+  { image: lizardImg, alt: "Lizard", left: "45px", top: "220px" },
+  { image: spockImg, alt: "Spock", left: "4px", top: "100px" },
 ];

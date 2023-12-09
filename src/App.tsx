@@ -1,13 +1,11 @@
 import "./App.css";
-// import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import AllOptionCards from "./components/AllOptionCards";
+import Game from "@/components/Game";
 
 function App() {
   return (
     <Layout>
-      {/* <Button>Click me</Button> */}
-      <AllOptionCards />
+      <Game />
     </Layout>
   );
 }
