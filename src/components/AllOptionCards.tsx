@@ -29,7 +29,7 @@ export default function AllOptionCards({
   return (
     <div className="flex flex-col">
       <h2 className="text-center">
-        {player === "player1" ? "Your game" : "Sheldon"} - {score}
+        {player === "player1" ? "You" : "Sheldon"} - {score}
       </h2>
       <section className="relative h-[350px] w-[350px] bg-slate-500 p-2 rounded-full">
         {optionsData.map((item) => {

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const Game = () => {
+  // declare states
   const [choicePlayer1, setChoicePlayer1] = useState<string>("");
   const [choicePlayer2, setChoicePlayer2] = useState<string>("");
   const [result, setResult] = useState<{ winner: string; sentence: string }>({
@@ -12,6 +13,7 @@ const Game = () => {
   const [score1, setScore1] = useState<number>(0);
   const [score2, setScore2] = useState<number>(0);
 
+  // reset function
   function reset() {
     setChoicePlayer1(""),
       setChoicePlayer2(""),
@@ -49,6 +51,7 @@ const Game = () => {
           score={score2}
         />
       </section>
+      {/* display results and reset button */}
       <section className="flex flex-col items-center justify-center">
         <h4>
           {result.winner === "player1"
